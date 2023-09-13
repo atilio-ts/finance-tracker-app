@@ -1,15 +1,15 @@
-import { User, Account, Transaction } from './models';
+import { UserModel, AccountModel, TransactionModel } from './models';
 
 seed();
 async function seed() {
     // create tables
-    await User.sync({ force: true });
-    await Account.sync({ force: true });
-    await Transaction.sync({ force: true });
+    await UserModel.sync({ force: true });
+    await AccountModel.sync({ force: true });
+    await TransactionModel.sync({ force: true });
 
     //insert data
     await Promise.all([
-        User.create({
+        UserModel.create({
             id: 1,
             name: 'Harry',
             password: 'Potter',
@@ -18,7 +18,7 @@ async function seed() {
             email:'client',
             profession: 'Hacker',
         }),
-        User.create({
+        UserModel.create({
             id: 2,
             name: 'Harry',
             password: 'Potter',
@@ -27,7 +27,7 @@ async function seed() {
             email:'client',
             profession: 'Hacker',
         }),
-        User.create({
+        UserModel.create({
             id: 3,
             name: 'Harry',
             password: 'Potter',

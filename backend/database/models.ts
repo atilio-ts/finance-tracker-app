@@ -5,8 +5,8 @@ export const sequelize = new Sequelize({
   storage: './database.sqlite3'
 });
 
-class User extends Model {}
-User.init(
+class UserModel extends Model {}
+UserModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,7 +15,7 @@ User.init(
     },
     name: {
       type: new DataTypes.STRING(128),
-      allowNull: false,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING(128),
@@ -23,11 +23,11 @@ User.init(
     },
     address: {
       type: DataTypes.STRING(128),
-      allowNull: false
+      allowNull: true
     },
     phone: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     email: {
       type: DataTypes.STRING(128),
@@ -35,7 +35,7 @@ User.init(
     },
     profession: {
       type: DataTypes.STRING(128),
-      allowNull: false
+      allowNull: true
     }
   },
   {
@@ -44,8 +44,8 @@ User.init(
   }
 );
 
-class Account extends Model {}
-Account.init(
+class AccountModel extends Model {}
+AccountModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -63,8 +63,8 @@ Account.init(
   }
 );
 
-class Transaction extends Model {}
-Transaction.init(
+class TransactionModel extends Model {}
+TransactionModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -94,9 +94,9 @@ Transaction.init(
   }
 );
 
-User.hasMany(Account, {as :'User',foreignKey:'UserId'})
-Account.belongsTo(User, {as: 'User'})
-Account.hasMany(Transaction, {as : 'Account', foreignKey:'AccountId'})
-Transaction.belongsTo(Account, {as: 'Account'})
+UserModel.hasMany(AccountModel, {as :'User',foreignKey:'UserId'})
+AccountModel.belongsTo(UserModel, {as: 'User'})
+AccountModel.hasMany(TransactionModel, {as : 'Account', foreignKey:'AccountId'})
+TransactionModel.belongsTo(AccountModel, {as: 'Account'})
 
-export { User, Account, Transaction }
+export { UserModel, AccountModel, TransactionModel }
