@@ -1,0 +1,63 @@
+Project Requirements:
+Front-end Development (React.js):
+
+    Develop a responsive and user-friendly frontend using React.js.
+    Create React components for views such as user registration/login, dashboard, transaction history, and financial summaries.
+    Implement client-side routing for navigation using react-router.
+
+
+Allow users to:
+
+    Register, log in, and manage their profiles.
+    Add, edit, and delete financial transactions (income and expenses).
+    View a transaction history with descriptions, amounts, and dates.
+    See financial summaries, including total income, total expenses, and balance.
+    Ensure proper state management for user data and financial transactions.
+    Make secure API calls to the backend for data retrieval and updates.
+
+
+Back-end Development (Node.js):
+
+    Create a Node.js server using Express.js to handle HTTP requests.
+    Implement a RESTful API to support the following functionalities:
+    DONE -> User registration and authentication.
+    Recording income and expenses with descriptions and amounts.
+    Listing, editing, and deleting financial transactions.
+    Calculating and displaying financial summaries (e.g., total income, total expenses, balance).
+    Use a database (e.g., SQLite, MySQL) to store user data and financial transactions.
+    Implement secure authentication and authorization for API endpoints using JWT or a similar mechanism.
+    Write unit tests for your backend routes and services.
+
+Integration:
+
+    Integrate the frontend and backend components to create a fully functional Personal Finance Tracker.
+    Ensure that user interactions, financial transactions, and summaries are synchronized between the frontend and backend.
+
+
+Additional Features (Bonus Points):
+
+    Implement data visualization (e.g., charts, graphs) for financial summaries.
+    Add a budgeting feature that allows users to set monthly spending limits and receive alerts when exceeded.
+    Implement data export and import functionality for transaction data.
+    Enhance the user experience with animations, responsive design, and a polished user interface.
+    Add Unit test for the front end. 
+
+Documentation:
+
+    Include a README.md file that provides an overview of the project, instructions for setup and deployment, and any other relevant information.
+    Document your code thoroughly, including comments and explanations where necessary.
+
+
+Evaluation Criteria:
+
+Your project will be assessed based on the following criteria:
+
+
+    Completion of core functionalities for a Personal Finance Tracker.
+    Code quality, organization, and documentation.
+    User interface design and responsiveness.
+    Effective use of React and Node.js.
+    Secure user authentication and authorization.
+    Database design and interaction.
+    Integration of the frontend and backend components.
+    Bonus features and creativity in implementation.

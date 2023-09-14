@@ -1,4 +1,7 @@
 import { UserModel, AccountModel, TransactionModel } from './models';
+import { genders } from '../src/types/users';
+import { accountType, currencies } from '../src/types/accounts';
+import { transactionCategories, transactionTypes } from '../src/types/transactions';
 
 seed();
 async function seed() {
@@ -11,182 +14,41 @@ async function seed() {
     await Promise.all([
         UserModel.create({
             id: 1,
-            name: 'Harry',
-            password: 'Potter',
-            address: 'Wizard',
-            phone: 1150,
-            email:'client',
-            profession: 'Hacker',
+            name: 'TEST',
+            password: '$2b$12$5xtf2iO8L4a8sxd71Z80ougO/fqd8NFTXk5cg4by.9tQcWKTWATda',
+            address: 'test address',
+            phone: 12345,
+            gender: genders.RATHER_NOT_SAY,
+            dateOfBirth: new Date(),
+            email:'test@test.com',
+            profession: 'Tester'
         }),
-        UserModel.create({
+        AccountModel.create({
+            id: 1,
+            name: 'MR. TEST ACCOUNT',
+            currentBalance: 5000.00,
+            initialBalance: 10000.10,
+            currency: currencies.USD,
+            accountType: accountType.BANK,
+            UserId: 1
+        }),
+        TransactionModel.create({
+            id: 1,
+            type: transactionTypes.INCOME,
+            category: transactionCategories.SALARY,
+            date: new Date(),
+            description: "Work",
+            amount: 0.90,
+            AccountId: 1
+        }),
+        TransactionModel.create({
             id: 2,
-            name: 'Harry',
-            password: 'Potter',
-            address: 'Wizard',
-            phone: 1150,
-            email:'client',
-            profession: 'Hacker',
+            type: transactionTypes.EXPENSE,
+            category: transactionCategories.BILLS,
+            date: new Date(),
+            description: "Electricity",
+            amount: 5000.00,
+            AccountId: 1
         }),
-        UserModel.create({
-            id: 3,
-            name: 'Harry',
-            password: 'Potter',
-            address: 'Wizard',
-            phone: 1150,
-            email:'client',
-            profession: 'Hacker',
-        }),
-    // Contract.create({
-    //     id:1,
-    //     terms: 'bla bla bla',
-    //     status: 'terminated',
-    //     ClientId: 1,
-    //     ContractorId:5
-    // }),
-    // Contract.create({
-    //     id:2,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 1,
-    //     ContractorId: 6
-    // }),
-    // Contract.create({
-    //     id:3,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 2,
-    //     ContractorId: 6
-    // }),
-    // Contract.create({
-    //     id: 4,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 2,
-    //     ContractorId: 7
-    // }),
-    // Contract.create({
-    //     id:5,
-    //     terms: 'bla bla bla',
-    //     status: 'new',
-    //     ClientId: 3,
-    //     ContractorId: 8
-    // }),
-    // Contract.create({
-    //     id:6,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 3,
-    //     ContractorId: 7
-    // }),
-    // Contract.create({
-    //     id:7,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 4,
-    //     ContractorId: 7
-    // }),
-    // Contract.create({
-    //     id:8,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 4,
-    //     ContractorId: 6
-    // }),
-    // Contract.create({
-    //     id:9,
-    //     terms: 'bla bla bla',
-    //     status: 'in_progress',
-    //     ClientId: 4,
-    //     ContractorId: 8
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     ContractId: 1,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 201,
-    //     ContractId: 2,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 202,
-    //     ContractId: 3,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     ContractId: 4,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     ContractId: 7,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 2020,
-    //     paid:true,
-    //     paymentDate:'2020-08-15T19:11:26.737Z',
-    //     ContractId: 7,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     paid:true,
-    //     paymentDate:'2020-08-15T19:11:26.737Z',
-    //     ContractId: 2,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     paid:true,
-    //     paymentDate:'2020-08-16T19:11:26.737Z',
-    //     ContractId: 3,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     paid:true,
-    //     paymentDate:'2020-08-17T19:11:26.737Z',
-    //     ContractId: 1,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 200,
-    //     paid:true,
-    //     paymentDate:'2020-08-17T19:11:26.737Z',
-    //     ContractId: 5,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 21,
-    //     paid:true,
-    //     paymentDate:'2020-08-10T19:11:26.737Z',
-    //     ContractId: 1,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 21,
-    //     paid:true,
-    //     paymentDate:'2020-08-15T19:11:26.737Z',
-    //     ContractId: 2,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 121,
-    //     paid:true,
-    //     paymentDate:'2020-08-15T19:11:26.737Z',
-    //     ContractId: 3,
-    // }),
-    // Job.create({
-    //     description: 'work',
-    //     price: 121,
-    //     paid:true,
-    //     paymentDate:'2020-08-14T23:11:26.737Z',
-    //     ContractId: 3,
-    // }),
-
     ]);
 }

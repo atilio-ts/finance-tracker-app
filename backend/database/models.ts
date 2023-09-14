@@ -25,17 +25,34 @@ UserModel.init(
       type: DataTypes.STRING(128),
       allowNull: true
     },
+    gender: {
+      type: new DataTypes.STRING,
+      allowNull: true,
+    },
     phone: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
     email: {
       type: DataTypes.STRING(128),
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     profession: {
       type: DataTypes.STRING(128),
       allowNull: true
+    },
+    dateOfBirth: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   },
   {
@@ -52,9 +69,33 @@ AccountModel.init(
       autoIncrement: true,
       primaryKey: true
     },
-    balance: {
-        type: new DataTypes.INTEGER,
-        allowNull: false,
+    name: {
+      type: new DataTypes.STRING(128),
+      allowNull: false
+    },
+    currentBalance: {
+      type: new DataTypes.DOUBLE,
+      allowNull: false
+    },
+    initialBalance: {
+      type: new DataTypes.DOUBLE,
+      allowNull: false
+    },
+    currency: {
+      type: new DataTypes.STRING,
+      allowNull: false
+    },
+    accountType: {
+      type: new DataTypes.STRING(3),
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   },
   {
@@ -72,8 +113,12 @@ TransactionModel.init(
       primaryKey: true
     },
     type: {
-        type: new DataTypes.STRING(128),
-        allowNull: false
+      type: new DataTypes.STRING(128),
+      allowNull: false
+    },
+    category: {
+      type: new DataTypes.STRING(128),
+      allowNull: false
     },
     date: {
       type: DataTypes.DATE,
@@ -84,7 +129,15 @@ TransactionModel.init(
       allowNull: false
     },
     amount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
+      allowNull: false
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
       allowNull: false
     }
   },
