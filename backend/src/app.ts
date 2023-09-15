@@ -4,7 +4,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit"
 import slowDown from "express-slow-down";
 import { userRoutes } from "./routes/users"
-//import { transactionRoutes } from "./routes/transactions"
+import { transactionRoutes } from "./routes/transactions"
 import { accountRoutes } from "./routes/accounts"
 
 //Limiters, body-parser and security
@@ -36,7 +36,7 @@ app.use(speedLimiter);
 
 //Routers
 app.use(userRoutes);
-//app.use(transactionRoutes);
+app.use(transactionRoutes);
 app.use(accountRoutes);
 
 //Listen

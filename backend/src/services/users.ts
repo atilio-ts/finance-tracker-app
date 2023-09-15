@@ -1,4 +1,3 @@
-
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { User, loginUser } from '../types/users';
@@ -21,7 +20,8 @@ export class UserService {
       if(!user) {
         createUserData.password = await bcrypt.hash(createUserData.password, SALT);
         await UserModel.create({ ...createUserData });
-      }else throw HttpStatusCode.CONFLICT;
+      }
+      else throw HttpStatusCode.CONFLICT;
     }catch (error){
       throw error;
     }
@@ -35,7 +35,8 @@ export class UserService {
         const validPassword =  await bcrypt.compare(loginUserData.password, user.password)
         if (!validPassword) throw HttpStatusCode.UNAUTHORIZED;
         else return { token: jwt.sign({ id: user.id.toString(), email: user.email }, JWT_SECRET) };
-      }else throw HttpStatusCode.NOT_FOUND;
+      }
+      else throw HttpStatusCode.NOT_FOUND;
     }catch (error){
       throw error;
     }
@@ -48,7 +49,8 @@ export class UserService {
       if(user) {
         if (updatedUserData.password) updatedUserData.password = await bcrypt.hash(updatedUserData.password, SALT);
         await UserModel.update(updatedUserData, { where: { id: updatedUserData.id } });
-      }else throw HttpStatusCode.NOT_FOUND;
+      }
+      else throw HttpStatusCode.NOT_FOUND;
     }catch (error:any){
       if(error.name === 'SequelizeUniqueConstraintError') throw HttpStatusCode.CONFLICT;
       throw error;

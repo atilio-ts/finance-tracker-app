@@ -6,7 +6,7 @@ import * as AccountValidator from "../validators/accounts";
 
 export const getAccounts = async (req: Request, res: Response) => {
     try {
-        let UserId = +req.params.UserId;
+        const UserId = +req.params.UserId;
         await AccountValidator.getAccountsSchema.validate({ UserId }, validatorOptions);
         const accounts = await AccountService.getAccounts(UserId);
         res.status(200).send({ accounts });

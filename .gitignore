@@ -11,8 +11,8 @@ node_modules
 /out-tsc
 
 # Environment varibales
-.env*
-!.env*.example
+# .env*
+# !.env*.example
 
 # Testing reports
 testing/mochawesome-report

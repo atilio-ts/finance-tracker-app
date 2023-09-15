@@ -1,11 +1,12 @@
 import { object, string, number } from 'yup';
+import { currencies, accountType} from '../types/accounts'
 
 export const createAccountSchema = object().shape({
     name: string().required(),
     currentBalance: number().required(),
     initialBalance: number().required(),
-    currency: string().required(),
-    accountType: string().required(),
+    currency: string().oneOf(Object.values(currencies)).required(),
+    accountType: string().oneOf(Object.values(accountType)).required(),
     UserId: number().required()
 }).noUnknown(true);
 
@@ -22,8 +23,8 @@ export const updateAccountSchema = object().shape({
     id: number().required(),
     name: string(),
     initialBalance: number(),
-    currency: string(),
-    accountType: string(),
+    currency: string().oneOf(Object.values(currencies)).required(),
+    accountType: string().oneOf(Object.values(accountType)).required(),
     UserId: number().required()
 }).noUnknown(true);
 

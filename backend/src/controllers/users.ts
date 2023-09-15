@@ -27,6 +27,7 @@ export const register = async (req: Request, res: Response) => {
 
 export const updateUserData = async (req: Request, res: Response) => {
     try {
+        req.body.dateOfBirth = new Date(req.body.dateOfBirth);
         const updatedUserData = { id: +req.params.UserId, ...req.body };
         await UserValidator.updateUserSchema.validate(updatedUserData, validatorOptions);
         await UserService.updateUserData(updatedUserData);
