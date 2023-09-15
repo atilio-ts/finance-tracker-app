@@ -1,0 +1,21 @@
+{
+    "extension": [
+        ".ts"
+    ],
+    "exclude": [
+        "coverage/**",
+        "database/**",
+        "src/controllers/**",
+        "src/middlewares/**",
+        "src/routes/**",
+        "src/types/**",
+        "src/validators/**",
+        "src/app.ts"
+    ],
+    "reporter": [
+        "html"
+    ],
+    "all": true,
+    "lines": 80,
+    "check-coverage": true
+}

@@ -15,19 +15,9 @@ node_modules
 # !.env*.example
 
 # Testing reports
-testing/mochawesome-report
-testing/.nyc_output
-testing/coverage
-test-management/scripts/__pycache__
+mochawesome-report
+.nyc_output
+coverage
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# vsCode
 .vscode/*
-.history/*
-.VSCodeCounter
