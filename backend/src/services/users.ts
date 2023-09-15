@@ -15,8 +15,7 @@ interface JwtPayload {
 export class UserService {
   static async register(createUserData: User) {
     try{
-      const foundUser = await UserModel.findOne({ where: { email: createUserData.email } });
-      const user = foundUser?.dataValues as User;
+      const user = await UserService.getUserbyEmail(createUserData.email);
       if(!user) {
         createUserData.password = await bcrypt.hash(createUserData.password, SALT);
         await UserModel.create({ ...createUserData });
@@ -29,8 +28,7 @@ export class UserService {
 
   static async login(loginUserData: loginUser) {
     try{
-      const foundUser = await UserModel.findOne({ where: { email: loginUserData.email } });
-      const user = foundUser?.dataValues as User;
+      const user = await UserService.getUserbyEmail(loginUserData.email);
       if(user) {
         const validPassword =  await bcrypt.compare(loginUserData.password, user.password)
         if (!validPassword) throw HttpStatusCode.UNAUTHORIZED;
@@ -44,8 +42,7 @@ export class UserService {
 
   static async updateUserData(updatedUserData: User) {
     try{
-      const foundUser = await UserModel.findOne({ where: { id: updatedUserData.id } });
-      const user = foundUser?.dataValues as User;
+      const user = await UserService.getUserbyId(updatedUserData.id);
       if(user) {
         if (updatedUserData.password) updatedUserData.password = await bcrypt.hash(updatedUserData.password, SALT);
         await UserModel.update(updatedUserData, { where: { id: updatedUserData.id } });
@@ -60,8 +57,28 @@ export class UserService {
   static async verifyToken(token: string) {
     try{
       let decoded = await jwt.verify(token, JWT_SECRET) as JwtPayload;
-      let user = await UserModel.findOne({ where: { id: decoded.id } });
-      return user?.dataValues;
+      const user = await UserService.getUserbyId(+decoded.id);
+      return user;
+    }catch (error){
+      throw error;
+    }
+  }
+
+  static async getUserbyEmail(userEmail: string) {
+    try{
+      const foundUser = await UserModel.findOne({ where: { email: userEmail } });
+      const user = foundUser?.dataValues as User;
+      return user;
+    }catch (error){
+      throw error;
+    }
+  }
+
+  static async getUserbyId(userId: number) {
+    try{
+      const foundUser = await UserModel.findOne({ where: { id: userId } });
+      const user = foundUser?.dataValues as User;
+      return user;
     }catch (error){
       throw error;
     }

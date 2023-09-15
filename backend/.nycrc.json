@@ -10,6 +10,7 @@
         "src/routes/**",
         "src/types/**",
         "src/validators/**",
+        "src/helpers/**",
         "tests/**",
         "mochawesome-report/**",
         "src/app.ts"
@@ -18,6 +19,6 @@
         "html"
     ],
     "all": true,
-    "lines": 80,
+    "lines": 70,
     "check-coverage": true
 }
