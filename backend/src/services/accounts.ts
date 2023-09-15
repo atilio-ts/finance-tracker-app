@@ -32,8 +32,7 @@ export class AccountService {
 
   static async updateAccount(updatedAccountData: Account) {
     try{
-      const foundAccount = await AccountModel.findOne({ where: { id: updatedAccountData.id, UserId: updatedAccountData.UserId } });
-      const account = foundAccount?.dataValues as Account;
+      const account = await AccountService.getAccountById({ id: updatedAccountData.id, UserId: updatedAccountData.UserId } as AccountIdData);
       if(account) {
         await AccountModel.update(updatedAccountData, { where: { id: updatedAccountData.id, UserId: updatedAccountData.UserId } });
       }
@@ -45,8 +44,7 @@ export class AccountService {
 
   static async deleteAccount(deleteAccountData: AccountIdData) {
     try{
-      const foundAccount = await AccountModel.findOne({ where: { id: deleteAccountData.id, UserId: deleteAccountData.UserId } });
-      const account = foundAccount?.dataValues as Account;
+      const account = await AccountService.getAccountById({ id: deleteAccountData.id, UserId: deleteAccountData.UserId } as AccountIdData);
       if(account) {
         await AccountModel.destroy({ where: { UserId: deleteAccountData.UserId, id: deleteAccountData.id } });
       }

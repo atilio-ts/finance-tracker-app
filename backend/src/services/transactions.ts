@@ -46,8 +46,7 @@ export class TransactionService {
     try{
       const account = await AccountService.getAccountById({ UserId: UserId, id: updatedTransactionData.AccountId});
       if(account && account.id) {
-        const foundTransaction = await TransactionModel.findOne({ where: { id: updatedTransactionData.id, AccountId: updatedTransactionData.AccountId } });
-        const transaction = foundTransaction?.dataValues as Transaction;
+        const transaction = await TransactionService.getTransactionById({ id: updatedTransactionData.id, AccountId: updatedTransactionData.AccountId, UserId: UserId } as TransactionByIdData);
         if(transaction) {
           await TransactionModel.update(updatedTransactionData,{ where: { AccountId: updatedTransactionData.AccountId, id: updatedTransactionData.id } });
           await TransactionService.updateAccountCurrentBalance(UserId, account.id, account.initialBalance);
@@ -64,8 +63,7 @@ export class TransactionService {
     try{
       const account = await AccountService.getAccountById({ id: deleteTransactionData.AccountId, UserId: deleteTransactionData.UserId });
       if(account && account.id) {
-        const foundTransaction = await TransactionModel.findOne({ where: { id: deleteTransactionData.id, AccountId: deleteTransactionData.AccountId } });
-        const transaction = foundTransaction?.dataValues as Transaction;
+        const transaction = await TransactionService.getTransactionById(deleteTransactionData);
         if(transaction) {
           await TransactionModel.destroy({ where: { AccountId: deleteTransactionData.AccountId, id: deleteTransactionData.id } });
           await TransactionService.updateAccountCurrentBalance(deleteTransactionData.UserId, account.id, account.initialBalance);

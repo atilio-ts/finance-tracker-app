@@ -10,6 +10,8 @@
         "src/routes/**",
         "src/types/**",
         "src/validators/**",
+        "tests/**",
+        "mochawesome-report/**",
         "src/app.ts"
     ],
     "reporter": [
