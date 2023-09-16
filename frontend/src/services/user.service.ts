@@ -21,4 +21,5 @@ class UserService {
   }
 }
 
+// eslint-disable-next-line
 export default new UserService();
