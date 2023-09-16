@@ -1,6 +1,7 @@
 {
-  "name": "frontend",
+  "name": "finance-tracker-app-frontend",
   "version": "0.1.0",
+  "description": "Finance Tracker App Frontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

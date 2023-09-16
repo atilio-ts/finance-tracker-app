@@ -1,7 +1,7 @@
 {
-  "name": "NicaSourceBackend",
+  "name": "finance-tracker-app-backend",
   "version": "1.0.0",
-  "description": "NicaSource Backend",
+  "description": "Finance Tracker App Backend",
   "main": "./src/app.ts",
   "author": "Atilio Villalba",
   "license": "ISC",
