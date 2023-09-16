@@ -97,6 +97,8 @@ To install the project's FrontEnd please open your terminal inside the frontend 
     
     npm run start- make sure to run the build and seed commands before starting the project
 
+To test all the enpoints you can use the FinanceTrackerApp.postman_collection.json file
+
 <a name="developerComments"></a>
 
 ## Developer notes, comments and further work
