@@ -20,12 +20,12 @@ Back-end Development (Node.js):
 
     Create a Node.js server using Express.js to handle HTTP requests.
     Implement a RESTful API to support the following functionalities:
-    DONE -> User registration and authentication.
-    DONE -> Recording income and expenses with descriptions and amounts.
-    DONE -> Listing, editing, and deleting financial transactions.
-    DONE -> Calculating and displaying financial summaries (e.g., total income, total expenses, balance).
-    DONE -> Use a database (e.g., SQLite, MySQL) to store user data and financial transactions.
-    DONE -> Implement secure authentication and authorization for API endpoints using JWT or a similar mechanism.
+    User registration and authentication.
+    Recording income and expenses with descriptions and amounts.
+    Listing, editing, and deleting financial transactions.
+    Calculating and displaying financial summaries (e.g., total income, total expenses, balance).
+    Use a database (e.g., SQLite, MySQL) to store user data and financial transactions.
+    Implement secure authentication and authorization for API endpoints using JWT or a similar mechanism.
     Write unit tests for your backend routes and services.
 
 Integration:

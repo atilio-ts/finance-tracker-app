@@ -32,7 +32,7 @@ export class UserService {
       if(user) {
         const validPassword =  await bcrypt.compare(loginUserData.password, user.password)
         if (!validPassword) throw HttpStatusCode.UNAUTHORIZED;
-        else return { token: jwt.sign({ id: user.id.toString(), email: user.email }, JWT_SECRET) };
+        else return { ...user, token: jwt.sign({ id: user.id.toString(), email: user.email }, JWT_SECRET) };
       }
       else throw HttpStatusCode.NOT_FOUND;
     }catch (error){

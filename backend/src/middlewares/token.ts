@@ -9,7 +9,7 @@ export const getAndVerifyToken = async (req: Request, res: Response, next: NextF
         if(req.headers.authorization)   {
             const hasAccess = await UserService.verifyToken(req.headers.authorization.replace('Bearer ', ''));
             if(hasAccess){
-                req.params.UserId = hasAccess.id;
+                req.params.UserId = hasAccess.id.toString();
                 next();
             } 
             else handleErrorResponse(res, HttpStatusCode.FORBIDDEN);

@@ -99,7 +99,7 @@ describe('UserService', () => {
       signStub.resolves("token");
       UserService.login(mockUser)
         .then((res) => {
-          expect(res).to.be.a('string');
+          expect(res).to.be.an('object');
         });
     });
 

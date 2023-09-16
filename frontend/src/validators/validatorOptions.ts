@@ -1,0 +1,1 @@
+export const validatorOptions = { strict: true };
