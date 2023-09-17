@@ -1,5 +1,6 @@
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
+import _ from 'lodash';
 import { User, loginUser } from '../types/users';
 import { UserModel } from '../../database/models'
 import { HttpStatusCode } from '../types/error';
@@ -32,7 +33,10 @@ export class UserService {
       if(user) {
         const validPassword =  await bcrypt.compare(loginUserData.password, user.password)
         if (!validPassword) throw HttpStatusCode.UNAUTHORIZED;
-        else return { ...user, token: jwt.sign({ id: user.id.toString(), email: user.email }, JWT_SECRET) };
+        else{
+          let userToReturn = _.omit(user, ['password']);
+          return { ...userToReturn, token: jwt.sign({ id: user.id.toString(), email: user.email }, JWT_SECRET) };
+        } 
       }
       else throw HttpStatusCode.NOT_FOUND;
     }catch (error){

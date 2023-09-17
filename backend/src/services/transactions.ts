@@ -5,6 +5,12 @@ import { HttpStatusCode } from '../types/error';
 import { Account } from '../types/accounts';
 
 export class TransactionService {
+  /**
+   * Retrieves transactions by account ID.
+   *
+   * @param {TransactionByAccountIdData} getTransactionsByAccountIdData - The data for retrieving transactions by account ID.
+   * @return {Promise<TransactionModel[]>} A promise that resolves to an array of transactions.
+   */
   static async getTransactionsByAccountId(getTransactionsByAccountIdData: TransactionByAccountIdData) {
     try{
       const account = await AccountService.getAccountById({ UserId: getTransactionsByAccountIdData.UserId, id: getTransactionsByAccountIdData.AccountId});
@@ -17,6 +23,12 @@ export class TransactionService {
     }
   }
 
+  /**
+   * Retrieves a transaction by its ID.
+   *
+   * @param {TransactionByIdData} getTransactionByIdData - The data containing the user ID and account ID of the transaction to retrieve.
+   * @return {Promise<TransactionModel | HttpStatusCode>} Returns a Promise that resolves to the transaction
+   */
   static async getTransactionById(getTransactionByIdData: TransactionByIdData) {
     try{
       const account = await AccountService.getAccountById({ UserId: getTransactionByIdData.UserId, id: getTransactionByIdData.AccountId});
@@ -29,6 +41,13 @@ export class TransactionService {
     }
   }
 
+  /**
+   * Creates a new transaction for a user.
+   *
+   * @param {number} UserId - The ID of the user.
+   * @param {Transaction} createTransactionData - The data for creating the transaction.
+   * @return {Promise<void>} - A promise that resolves when the transaction is created.
+   */
   static async createTransaction(UserId: number, createTransactionData: Transaction) {
     try{
       const account = await AccountService.getAccountById({ UserId: UserId, id: createTransactionData.AccountId });
@@ -42,6 +61,14 @@ export class TransactionService {
     }
   }
 
+  
+  /**
+   * Updates a transaction for a given user.
+   *
+   * @param {number} UserId - The ID of the user.
+   * @param {Transaction} updatedTransactionData - The updated transaction data.
+   * @return {Promise<void>} - A promise that resolves when the transaction is updated.
+   */
   static async updateTransaction(UserId: number, updatedTransactionData: Transaction) {
     try{
       const account = await AccountService.getAccountById({ UserId: UserId, id: updatedTransactionData.AccountId});
@@ -59,6 +86,12 @@ export class TransactionService {
     }
   }
 
+  /**
+   * Deletes a transaction.
+   *
+   * @param {TransactionByIdData} deleteTransactionData - The data needed to delete a transaction.
+   * @return {Promise<void>} - Resolves when the transaction is deleted.
+   */
   static async deleteTransaction(deleteTransactionData: TransactionByIdData) {
     try{
       const account = await AccountService.getAccountById({ id: deleteTransactionData.AccountId, UserId: deleteTransactionData.UserId });

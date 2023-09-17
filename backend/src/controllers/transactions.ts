@@ -4,6 +4,13 @@ import { handleErrorResponse } from "../helpers/errorHandler";
 import { validatorOptions } from '../validators/validatorOptions';
 import * as TransactionValidator from "../validators/transactions";
 
+/**
+ * Retrieves transactions for a specific user and account.
+ *
+ * @param {Request} req - The HTTP request object.
+ * @param {Response} res - The HTTP response object.
+ * @return {Promise<void>} The function does not return anything.
+ */
 export const getTransactions = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -16,6 +23,13 @@ export const getTransactions = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Retrieves a transaction by its ID.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<void>} - Returns a promise that resolves to void.
+ */
 export const getTransactionById = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -29,6 +43,13 @@ export const getTransactionById = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Creates a transaction.
+ *
+ * @param {Request} req - the request object
+ * @param {Response} res - the response object
+ * @return {Promise<void>} - a promise that resolves once the transaction is created
+ */
 export const createTransaction = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -42,6 +63,13 @@ export const createTransaction = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Updates a transaction.
+ *
+ * @param {Request} req - the request object
+ * @param {Response} res - the response object
+ * @return {Promise<void>} - a promise that resolves with no value
+ */
 export const updateTransaction = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -55,6 +83,13 @@ export const updateTransaction = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Delete a transaction from the database.
+ *
+ * @param {Request} req - The request object containing the parameters.
+ * @param {Response} res - The response object to send the result.
+ * @return {Promise<void>} - a promise that resolves with no value
+ */
 export const deleteTransaction = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;

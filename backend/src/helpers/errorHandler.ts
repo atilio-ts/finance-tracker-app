@@ -3,6 +3,13 @@ import { HttpStatus } from "../types/httpStatus";
 import { ValidationError } from "yup";
 import { Response } from "express";
 
+/**
+ * Handles the error response from the server.
+ *
+ * @param {Response} res - The response object.
+ * @param {any} error - The error object.
+ * @return {Promise<void>} - A promise that resolves to void.
+ */
 export const handleErrorResponse = async (res: Response, error: any): Promise<void> => {
     console.log(`${handleErrorResponse.name}: `, error);
     switch (true) {

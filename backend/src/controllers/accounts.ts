@@ -4,6 +4,13 @@ import { handleErrorResponse } from "../helpers/errorHandler";
 import { validatorOptions } from '../validators/validatorOptions';
 import * as AccountValidator from "../validators/accounts";
 
+/**
+ * Retrieves the accounts associated with a specific user.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<void>} Returns a promise that resolves with the retrieved accounts.
+ */
 export const getAccounts = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -15,6 +22,13 @@ export const getAccounts = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Retrieves an account by its ID.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<account>} A promise that resolves with the retrieved account.
+ */
 export const getAccountById = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -27,6 +41,13 @@ export const getAccountById = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Creates an account for the specified user.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<void>} - A promise that resolves with no value.
+ */
 export const createAccount = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
@@ -38,6 +59,13 @@ export const createAccount = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Updates an account.
+ *
+ * @param {Request} req - The request object.
+ * @param {Response} res - The response object.
+ * @return {Promise<void>} A promise that resolves with no value.
+ */
 export const updateAccount = async (req: Request, res: Response) => {
     try {
         const updatedAccountData = { UserId: +req.params.UserId, id: +req.params.AccountId, ...req.body };
@@ -49,6 +77,13 @@ export const updateAccount = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * Deletes an account.
+ *
+ * @param {Request} req - The HTTP request object.
+ * @param {Response} res - The HTTP response object.
+ * @return {Promise<void>} - A promise that resolves when the account is deleted.
+ */
 export const deleteAccount = async (req: Request, res: Response) => {
     try {
         const UserId = +req.params.UserId;
