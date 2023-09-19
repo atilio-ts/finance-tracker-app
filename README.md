@@ -89,7 +89,7 @@ To install the project's FrontEnd please open your terminal inside the frontend 
 
 ### Backend
 
-To install the project's BackEnd please open your terminal inside the frontend folder and run the following commands:
+To install the project's BackEnd please open your terminal inside the backend folder and run the following commands:
 
     npm install
     
