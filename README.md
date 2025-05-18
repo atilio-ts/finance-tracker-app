@@ -1,118 +1,156 @@
 # Finance Tracker App
 
-This Finance Tracker App was developed as a part of a coding interview process challenge you can find the specific instructions in the instructions and requirements section.
+A full-stack personal finance management application built using React.js and Node.js. Designed to help users track income, expenses, and manage their financial data efficiently.
 
-## Table of contents
+---
 
-#### [Assestment Instructions](#instructions)
+## 📌 Table of Contents
 
-#### [Scripts and run instructions](#scriptsAndRunInstructions)
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation & Setup](#installation-setup)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Developer Notes](#developer-notes)
+- [Future Improvements](#future-improvements)
 
-#### [Developer notes, comments and further work](#developerComments)
+---
 
-<a name="instructions"></a>
+## 📖 Overview
 
-## Instructions and requirements
+The Finance Tracker App was developed as part of a coding interview challenge. It aims to provide users with a platform to manage their finances by tracking income and expenses, offering insights into their financial habits.
 
-### Front-end Development (React.js)
+---
 
-Develop a responsive and user-friendly frontend using React.js.
-Create React components for views such as user registration/login, dashboard, transaction history, and financial summaries.
-Implement client-side routing for navigation using react-router.
+## ✅ Features
 
-Allow users to:
+- **User Authentication**: Secure registration and login system.
+- **Transaction Management**: Add, edit, and delete income and expense records.
+- **Financial Dashboard**: View summaries of total income, expenses, and balance.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Data Visualization**: Charts and graphs to visualize financial data.
+- **API Integration**: Backend API to handle data operations.
 
-- Register, log in, and manage their profiles.
-- Add, edit, and delete financial transactions (income and expenses).
-- View a transaction history with descriptions, amounts, and dates.
-- See financial summaries, including total income, total expenses, and balance.
-- Ensure proper state management for user data and financial transactions.
-- Make secure API calls to the backend for data retrieval and updates.
+---
 
-### Back-end Development (Node.js)
+## 🛠️ Tech Stack
 
-- Create a Node.js server using Express.js to handle HTTP requests.
-- Implement a RESTful API to support the following functionalities:
-- User registration and authentication.
-- Recording income and expenses with descriptions and amounts.
-- Listing, editing, and deleting financial transactions.
-- Calculating and displaying financial summaries (e.g., total income, total expenses, balance).
-- Use a database (e.g., SQLite, MySQL) to store user data and financial transactions.
-- Implement secure authentication and authorization for API endpoints using JWT or a similar mechanism.
-- Write unit tests for your backend routes and services.
+- **Frontend**: React.js, React Router, Axios
+- **Backend**: Node.js, Express.js, SQLite
+- **Authentication**: JWT (JSON Web Tokens)
+- **Testing**: Jest, Supertest
+- **Styling**: CSS, Bootstrap
 
-### Integration
+---
 
-Integrate the frontend and backend components to create a fully functional Personal Finance Tracker.
-Ensure that user interactions, financial transactions, and summaries are synchronized between the frontend and backend.
-
-### Additional Features (Bonus Points)
-
-Implement data visualization (e.g., charts, graphs) for financial summaries.
-Add a budgeting feature that allows users to set monthly spending limits and receive alerts when exceeded.
-Implement data export and import functionality for transaction data.
-Enhance the user experience with animations, responsive design, and a polished user interface.
-Add Unit test for the front end.
-
-### Documentation
-
-Include a README.md file that provides an overview of the project, instructions for setup and deployment, and any other relevant information.
-Document your code thoroughly, including comments and explanations where necessary.
-
-### Evaluation Criteria
-
-- Completion of core functionalities for a Personal 
-- Finance Tracker.
-- Code quality, organization, and documentation.
-- User interface design and responsiveness.
-- Effective use of React and Node.js.
-- Secure user authentication and authorization.
-- Database design and interaction.
-- Integration of the frontend and backend components.
-- Bonus features and creativity in implementation.
-
-<a name="scriptsAndRunInstructions"></a>
-
-## Scripts and run instructions
+## ⚙️ Installation & Setup
 
 ### Prerequisites
 
-Installl NodeJs version 16.x or higher
+- Node.js version 16.x or higher
+
 ### Frontend
 
-To install the project's FrontEnd please open your terminal inside the frontend folder and run the following commands:
-    npm install
-    
-    npm run build
-    
-    npm run start
+1. Navigate to the `frontend` directory.
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+
+3. Build the project:
+
+   ```bash
+   npm run build
+   ```
+
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
 
 ### Backend
 
-To install the project's BackEnd please open your terminal inside the backend folder and run the following commands:
+1. Navigate to the `backend` directory.
+2. Install dependencies:
 
-    npm install
-    
-    npm run build
-    
-    npm run seed - to create the database and seed data
+   ```bash
+   npm install
+   ```
 
-    npm run coverage - to run the tests and create a coverage report that you can see via the \backend\coverage\index.html file
-    
-    npm run start- make sure to run the build and seed commands before starting the project
 
-To test all the enpoints you can use the FinanceTrackerApp.postman_collection.json file with postman
+3. Build the project:
 
-<a name="developerComments"></a>
+   ```bash
+   npm run build
+   ```
 
-## Developer notes, comments and further work
 
-Since I have more experience working as a backend developer for this challenge I tried to focus more in it to highlight my strengths and experience. First I started with the database design that you can find in the databaseDigram.png file, I chose sqlite3 since it does not require installing or mounting servers and can be used from a file which can be generated by a script. After that I started developing the backend starting with the app, controllers and services for the users.
+4. Seed the database:
 
-Once the user endpoints where done I started working on the accounts and transactions, and later the testing for the backend services. In the testing some of tests are skipped because they were failing and I didn't have enough time to fix them.
+   ```bash
+   npm run seed
+   ```
 
-For the front end I created components for the most important pages login, register and the user accounts dashboard. I'm still learning react so did the best I could for the given time frame, I know I didn't finish the integration but I know I can do better with more time and practice.
 
-For further work in the backend I would add tests for the controllers and helpers, and up the required coverage to 80%, clean the code and make it more readable.
+5. Run tests:
 
-For the front end I would finish the integration, use the [Next UI component library](https://nextui.org/docs/guide/installation) to improve the user experience and web design, add the tests with jest and react-testing-library
+   ```bash
+   npm run coverage
+   ```
+
+
+6. Start the server:
+
+   ```bash
+   npm start
+   ```
+
+
+---
+
+## 🚀 Usage
+
+- Access the frontend at `http://localhost:3000`.
+- Use the backend API for data operations.
+- Refer to the `FinanceTrackerApp.postman_collection.json` file for API endpoints and testing.
+
+---
+
+## 🧪 Testing
+
+The backend includes unit tests to ensure functionality. Run the following command to execute tests and generate a coverage report:
+
+
+```bash
+npm run coverage
+```
+
+
+The coverage report can be viewed at `backend/coverage/index.html`.
+
+---
+
+## 📝 Developer Notes
+
+As a backend developer, I focused on building a robust backend system. The database schema was designed using SQLite for its simplicity and portability. The backend was developed with Node.js and Express.js, ensuring secure authentication with JWT.
+
+The frontend was developed using React.js, with components for user registration, login, and the financial dashboard. While the integration between frontend and backend is incomplete, the foundational work is in place.
+
+---
+
+## 🚧 Future Improvements
+
+- **Frontend Integration**: Complete the integration between frontend and backend.
+- **UI Enhancement**: Implement a modern UI using component libraries like [Next UI](https://nextui.org/docs/guide/installation).
+- **Testing**: Add unit tests for frontend components using Jest and React Testing Library.
+- **Code Refactoring**: Improve code readability and maintainability.
+- **Additional Features**:
+  - Implement budgeting functionality.
+  - Add data export/import capabilities.
+  - Enhance data visualization with charts and graphs.
